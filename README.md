@@ -88,21 +88,17 @@ cd Server-Stats
 
 Verify bash version: `bash --version`
 
-### Setup & Run
+### Setup & Run for linux 
 
 ```bash
 # Step 1 — Clone
 git clone https://github.com/gouravroy27/Server-Stats.git
 cd Server-Stats
 
-# Step 2 — Fix line endings if needed (especially on Windows/WSL downloads)
-file server-stats.sh
-sed -i 's/\r$//' server-stats.sh   # only if CRLF reported
-
-# Step 3 — Grant execute permission
+# Step 2 — Grant execute permission
 chmod +x server-stats.sh
 
-# Step 4 — Run
+# Step 3 — Run
 ./server-stats.sh
 
 # Optional: install system-wide
