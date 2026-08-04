@@ -145,10 +145,7 @@ No execution policy changes needed.
 git clone https://github.com/gouravroy27/Server-Stats.git
 cd Server-Stats
 
-:: Step 2 — Unblock the script
-::   Right-click server-stats.ps1 → Properties → ☑ Unblock → OK
-
-:: Step 3 — Run
+:: Step 2 — Run
 .\server-stats.bat
 ```
 
