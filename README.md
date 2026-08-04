@@ -1,92 +1,170 @@
 <div align="center">
 
-# 🖥️ `[ SYSTEM.MONITORING.ONLINE ]`
-### `root@gourav:~/Server-Stats$ ./run_dashboard.sh`
+<img src="https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-blue?style=for-the-badge&logo=linux&logoColor=white" alt="Platform">
+<img src="https://img.shields.io/badge/shell-bash%204.0%2B-green?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Bash">
+<img src="https://img.shields.io/badge/powershell-5.1%2B-5391FE?style=for-the-badge&logo=powershell&logoColor=white" alt="PowerShell">
+<img src="https://img.shields.io/badge/license-MIT-orange?style=for-the-badge" alt="License">
 
-```text
-  ___  ___  ___  ___  ____    ___  _____   _   _____  ___ 
- / __|| __|| _ \| _ \|  _ \  / __||_   _| /_\ |_   _|/ __|
- \__ \| _| |   /|   /| | | | \__ \  | |  / _ \  | |  \__ \
- |___/|___||_|_\|_|_\|_| |_| |___/  |_| /_/ \_\ |_|  |___/
-```
+# 📊 Server Stats
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com/?font=VT323&size=28&color=00FF00&center=true&vCenter=true&width=750&height=45&lines=Initialising+System+Diagnostics...;Status:+High_Fidelity_RealTime_Metrics;Architecture:+Zero-Dependency_Shell_PowerShell)](https://git.io/typing-svg)
+**A powerful, lightweight cross-platform system monitoring tool**  
+*Real-time visibility into every process running on your machine — from CPU hogs to memory leaks.*
 
-<br>
+[Getting Started](#-getting-started) · [Linux / macOS](#-linux--macos--wsl) · [Windows](#-windows-10--11) · [Features](#-features) · [Contributing](#-contributing)
 
-![Bash](https://img.shields.io/badge/Bash-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
-![PowerShell](https://img.shields.io/badge/PowerShell-%235391FE.svg?style=for-the-badge&logo=powershell&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+---
 
 </div>
 
----
+## ✨ Features
 
-### 📁 `[ ./PROJECT_DESCRIPTION ]`
-
-The **Server Stats** tool is a lightweight, high-fidelity system monitoring utility. No daemons, no heavy overhead. Just raw, real-time data directly in your terminal.
-
-Whether you're debugging on a Linux server or checking hardware health on Windows, this dashboard provides everything you need with a modern aesthetic that doesn't hurt the eyes.
-
-<div align="center">
-
-![Dashboard Preview](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHZtamxjcndkcHl1dGFnZzkyejE3YWpkaDh6YW9leHhieDlzbHk3ciZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3ohc11UljvpPKWeNva/giphy.gif)
-
-</div>
+- 🔍 **Process Monitoring** — View stats for all running processes in real time
+- 💾 **Memory Usage** — Track RAM consumption system-wide and per process
+- ⚡ **CPU Metrics** — Identify CPU-hungry processes instantly
+- 🛜 **Wi-Fi Info** — Optional network interface status (Linux/macOS)
+- 🔋 **Battery Status** — Optional battery reporting on supported systems
+- 🪟 **Cross-Platform** — Works on Linux, macOS, WSL2, Windows 10 & 11
+- 🪶 **Zero Dependencies** — Uses only standard POSIX utilities
 
 ---
 
-### 🚀 `[ ./FEATURES ]`
+## 🚀 Getting Started
 
-- **Bash/PowerShell Parity:** Native performance on both Linux and Windows.
-- **Modern Minimalist UI:** Asymmetrical left-accent cards (`▌`).
-- **Zero Dependencies:** Pure POSIX shell and WMI/CIM.
-- **Features Include:** CPU/Memory Gauges, Disk Usage, Top Processes, Wi-Fi Diagnostics, and Battery Status.
+Choose your platform below and follow the steps to get up and running in under a minute.
 
 ---
 
-### 🛠️ `[ ./INSTALLATION_&_EXECUTION ]`
+## 🐧 Linux / macOS / WSL
 
-#### 🐧 Linux / macOS / WSL
-1. **Grant permissions:** `chmod +x server-stats.sh`
-2. **Execute:** `./server-stats.sh`
+### Supported Platforms
 
-#### 🪟 Windows 10/11
-1. **Download:** `server-stats.ps1` and `server-stats.bat`.
-2. **Unblock:** Right-click both files -> Properties -> Check **Unblock** -> OK.
-3. **Run:** Double-click `server-stats.bat`.
+| Platform | Version |
+|----------|---------|
+| Linux | Kernel 2.6+ (any distro) |
+| macOS | 10.9 Mavericks and above |
+| Windows WSL2 | Ubuntu / Debian subsystem |
 
-*Note: The included batch launcher bypasses execution policy restrictions without compromising system security.*
+### Required Dependencies
 
----
+These are standard POSIX utilities — they come pre-installed on virtually every Unix-like system.
 
-### 🧬 `[ ./CODE_ARCHITECTURE ]`
-
-<details>
-<summary><b><code>>_ click_to_expand_internal_logic</code></b></summary>
-
-<br>
-
-How the magic happens under the hood:
-
-```text
-📦 Server-Stats
- ┣ 📜 server-stats.sh    # Bash core logic (awk/sed/grep)
- ┣ 📜 server-stats.ps1   # PowerShell core (WMI/CIM)
- ┣ 📜 server-stats.bat   # Windows execution wrapper
- ┗ 📜 requirements.txt   # Env diagnostics guide
+```
+bash (4.0+)   awk   sed   grep   ps
+free (Linux)  OR  vm_stat (macOS)
 ```
 
-</details>
+### Installation & Usage
 
-<br>
+```bash
+# 1. Download the script
+curl -O https://raw.githubusercontent.com/your-username/server-stats/main/server-stats.sh
+
+# 2. Make it executable
+chmod +x server-stats.sh
+
+# 3. Run it
+./server-stats.sh
+```
+
+### Optional Dependencies
+
+For extended features, you can optionally install:
+
+| Feature | Tool |
+|---------|------|
+| Wi-Fi management | `nmcli` or `iw` |
+| Battery status | `acpi` or `/sys/class/power_supply/` |
+
+```bash
+# Ubuntu / Debian
+sudo apt install acpi network-manager
+
+# Arch Linux
+sudo pacman -S acpi networkmanager
+```
+
+---
+
+## 🪟 Windows 10 / 11
+
+### Supported Platforms
+
+| Platform | Build |
+|----------|-------|
+| Windows 10 | Build 1809 and above |
+| Windows 11 | All builds |
+
+### Required Dependencies
+
+| Tool | Version |
+|------|---------|
+| PowerShell | 5.1 (built-in) or Core 7+ *(recommended)* |
+
+### ✅ Recommended Method — Batch Launcher
+
+No system-wide policy changes needed. Just use the included launcher:
+
+```
+1. Place server-stats.ps1 and server-stats.bat in the same folder.
+
+2. Unblock the script:
+   Right-click server-stats.ps1 → Properties → ☑ Unblock → OK
+
+3. Run it:
+   Double-click server-stats.bat
+   — OR —
+   From CMD: .\server-stats.bat
+```
+
+### ⚙️ Alternative — Direct PowerShell (Advanced Users)
+
+If you prefer running the `.ps1` directly, you'll need to adjust the execution policy first:
+
+```powershell
+# Open PowerShell as Administrator, then run:
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
+
+# Then run the script:
+.\server-stats.ps1
+```
+
+> **Note:** Only modify execution policy if you understand the security implications.  
+> The batch launcher method is recommended for most users.
+
+---
+
+## 📁 Project Structure
+
+```
+server-stats/
+├── server-stats.sh       # Main script for Linux / macOS / WSL
+├── server-stats.ps1      # PowerShell script for Windows
+├── server-stats.bat      # Batch launcher for Windows (no policy changes needed)
+└── README.md
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
 
 <div align="center">
 
-![System Check](https://media.giphy.com/media/T9lEUmQx0u74G3gZ5c/giphy.gif)
-
-<br>
-<code>[ SYSTEM_HEALTH: OPTIMAL ]</code><br>
-<code>[ CONNECTION_TERMINATED ]</code>
+Made with ❤️ — if this helped you, consider giving it a ⭐
 
 </div>
