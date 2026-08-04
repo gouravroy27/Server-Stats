@@ -7,7 +7,13 @@
 ╚════██║██╔══╝  ██╔══██╗╚██╗ ██╔╝██╔══╝  ██╔══██╗
 ███████║███████╗██║  ██║ ╚████╔╝ ███████╗██║  ██║
 ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝
-                   S T A T S
+
+███████╗ ████████╗  █████╗  ████████╗ ███████╗
+██╔════╝ ╚══██╔══╝ ██╔══██╗ ╚══██╔══╝ ██╔════╝
+███████╗    ██║    ███████║    ██║    ███████╗
+╚════██║    ██║    ██╔══██║    ██║    ╚════██║
+███████║    ██║    ██║  ██║    ██║    ███████║
+╚══════╝    ╚═╝    ╚═╝  ╚═╝    ╚═╝    ╚══════╝
 ```
 
 **A modern, zero-dependency terminal dashboard for real-time system monitoring**  
@@ -15,11 +21,11 @@
 
 <br>
 
-[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-0d1117?style=for-the-badge&logo=linux&logoColor=58a6ff&labelColor=161b22)](https://github.com/gouravroy27/Server-Stats)
-[![Bash](https://img.shields.io/badge/bash-4.0%2B-0d1117?style=for-the-badge&logo=gnu-bash&logoColor=58a6ff&labelColor=161b22)](https://github.com/gouravroy27/Server-Stats)
-[![PowerShell](https://img.shields.io/badge/powershell-5.1%2B-0d1117?style=for-the-badge&logo=powershell&logoColor=58a6ff&labelColor=161b22)](https://github.com/gouravroy27/Server-Stats)
-[![License](https://img.shields.io/badge/license-MIT-0d1117?style=for-the-badge&logoColor=58a6ff&labelColor=161b22)](LICENSE)
-[![Zero Deps](https://img.shields.io/badge/dependencies-zero-0d1117?style=for-the-badge&logoColor=58a6ff&labelColor=161b22)](https://github.com/gouravroy27/Server-Stats)
+[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-0d1117?style=for-the-badge&logo=linux&logoColor=58a6ff&labelColor=161b22)](https://github.com/gouravroy27/Server-Stats#-linux--macos--wsl)
+[![Bash](https://img.shields.io/badge/bash-4.0%2B-0d1117?style=for-the-badge&logo=gnu-bash&logoColor=58a6ff&labelColor=161b22)](https://github.com/gouravroy27/Server-Stats/blob/main/server-stats.sh)
+[![PowerShell](https://img.shields.io/badge/powershell-5.1%2B-0d1117?style=for-the-badge&logo=powershell&logoColor=58a6ff&labelColor=161b22)](https://github.com/gouravroy27/Server-Stats/blob/main/server-stats.ps1)
+[![License](https://img.shields.io/badge/license-MIT-0d1117?style=for-the-badge&logoColor=58a6ff&labelColor=161b22)](https://github.com/gouravroy27/Server-Stats/blob/main/LICENSE)
+[![Zero Deps](https://img.shields.io/badge/dependencies-zero-0d1117?style=for-the-badge&logoColor=58a6ff&labelColor=161b22)](https://github.com/gouravroy27/Server-Stats#-architecture-highlights)
 
 <br>
 
