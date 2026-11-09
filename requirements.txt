@@ -1,59 +1,26 @@
-================================================================================
-SERVER-STATS — REQUIREMENTS & EXECUTION GUIDE
-================================================================================
+# Server Stats — System Requirements & Dependencies
+#
+# Server Stats is zero-dependency by design and uses core POSIX utilities
+# already present in standard Linux and Unix installations.
 
-This document details the environment requirements and setup steps to run 
-the Server Stats monitoring tool on Linux/macOS and Windows platforms.
+# Core Packages (Standard in almost all Linux distributions):
+# - bash (>= 4.0)
+# - gawk or mawk (awk)
+# - coreutils (sed, grep, cat, df, uptime, hostname, date)
+# - procps or procps-ng (ps, free, vmstat)
 
---------------------------------------------------------------------------------
-1. LINUX / MACOS / WSL
---------------------------------------------------------------------------------
+# Optional Packages (for wireless network management):
+# - network-manager (provides nmcli) OR iw
 
-Target Platforms:
-  • Linux (kernel 2.6+, any distribution)
-  • macOS (10.9+)
-  • Windows WSL2 (Ubuntu/Debian subsystem)
-
-Required Dependencies:
-  • bash (4.0+)
-  • awk, sed, grep, ps (Standard core POSIX utilities)
-  • free (Linux) OR vm_stat (macOS)
-
-Installation:
-  1. Download `server-stats.sh`.
-  2. Set execute permissions: `chmod +x server-stats.sh`
-  3. Run: `./server-stats.sh`
-
-Optional (for Wi-Fi/Battery):
-  • `nmcli` or `iw` (for Wi-Fi management)
-  • `acpi` or `/sys/class/power_supply/` (for battery status)
-
---------------------------------------------------------------------------------
-2. WINDOWS 10 / 11
---------------------------------------------------------------------------------
-
-Target Platforms:
-  • Windows 10 (Build 1809+)
-  • Windows 11
-
-Required Dependencies:
-  • PowerShell 5.1 (Built-in) or PowerShell Core 7+ (Recommended)
-
-How to Run (Recommended Method):
-  To avoid modifying your system-wide security settings, use the provided 
-  batch launcher.
-
-  1. Place `server-stats.ps1` and `server-stats.bat` in the same directory.
-  2. Unblock the file: Right-click `server-stats.ps1` -> Properties -> Check "Unblock" -> OK.
-  3. Run by double-clicking `server-stats.bat` or executing from CMD:
-     `.\server-stats.bat`
-
-Alternative (Advanced Users Only):
-  If you prefer running the `.ps1` script directly, you must adjust the 
-  PowerShell execution policy:
-  1. Open PowerShell as Administrator.
-  2. Run: `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force`
-
---------------------------------------------------------------------------------
-For more details, please refer to the README.md file included in this repository.
-================================================================================
+# Quick Install on Minimal / Container Environments:
+# Debian / Ubuntu:
+#   sudo apt update && sudo apt install -y bash gawk coreutils procps
+#
+# Arch Linux:
+#   sudo pacman -S --needed bash gawk coreutils procps-ng
+#
+# Alpine Linux:
+#   apk add --no-cache bash gawk coreutils procps
+#
+# RHEL / Rocky / Fedora:
+#   sudo dnf install -y bash gawk coreutils procps-ng
