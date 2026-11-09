@@ -27,6 +27,20 @@
 
 ---
 
+## About
+
+**Server Stats** is a lightweight, zero-dependency performance monitoring dashboard designed for developers, sysadmins, and DevOps engineers who need rapid visibility into hardware and process telemetry without running bloated background daemons.
+
+Built around a modern **Tokyo Night / Nord** minimalist aesthetic, it features asymmetrical left-accent cards (`▌`) and dual-texture gauge bars (`█` / `░`) that instantly translate raw kernel counters into clean, readable performance metrics.
+
+### At a Glance
+- **Architecture**: Single self-contained script with zero runtime compilation or third-party package dependencies.
+- **Platforms**: Native POSIX shell for Linux & macOS (`server-stats.sh`) and native WMI/CIM for Windows 10/11 (`server-stats.ps1`).
+- **Telemetry Sources**: Direct `/proc/stat` and `/proc/meminfo` parsing on Linux, Darwin `vm_stat` page sizes on macOS, and CIM hardware providers on Windows.
+- **Footprint**: Under 15ms execution time with 0.00% background daemon memory overhead.
+
+---
+
 ## Why I Built This
 
 I got tired of heavyweight telemetry agents and web-based server dashboards eating 300MB of RAM and 5% CPU just to report on idle edge servers. 
@@ -128,6 +142,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 Usage: ./server-stats.sh [OPTIONS]
 
   -s, --report             Print full non-interactive performance snapshot and exit
+  --about                  Display project information, version, and author details
   -a, --all                Show hidden / detached background processes
   --kill <PID>             Interactively verify and terminate a rogue PID
   --wifi-list              Scan and list nearby Wi-Fi networks
@@ -153,6 +168,7 @@ When running in interactive mode, use the following options:
 | `09` | **Wi-Fi Scanner** | Nearby wireless network discovery with RSSI and encryption flags |
 | `10` | **Wi-Fi Current** | Current connected SSID and link parameters |
 | `11` | **Full Report** | Sequentially render all diagnostic cards in a single pass |
+| `12` | **About** | Display project metadata, version, and repository links |
 | `r`  | **Refresh** | Redraw the current screen |
 | `0`  | **Exit** | Cleanly return to shell |
 

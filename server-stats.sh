@@ -83,9 +83,25 @@ draw_main_menu() {
     echo -e "${CYAN}▌${RESET}  05  Top Mem Processes   ${CYAN}▌${RESET}  06  System Information"
     echo -e "${CYAN}▌${RESET}  07  Battery Status      ${CYAN}▌${RESET}  08  Hidden Processes"
     echo -e "${CYAN}▌${RESET}  09  Wi-Fi List          ${CYAN}▌${RESET}  10  Wi-Fi Current"
-    echo -e "${CYAN}▌${RESET}  11  Full Report         ${CYAN}▌${RESET}  00  Exit"
+    echo -e "${CYAN}▌${RESET}  11  Full Report         ${CYAN}▌${RESET}  12  About Project"
+    echo -e "${CYAN}▌${RESET}  00  Exit"
     echo -e "${GRAY}──────────────────────────────────────────────────────────${RESET}"
-    echo -e "${DIM}  › Select [1-11]   › Refresh [r]   › Exit [0]${RESET}"
+    echo -e "${DIM}  › Select [1-12]   › Refresh [r]   › Exit [0]${RESET}"
+}
+
+show_about() {
+    draw_banner
+    echo -e "${VIOLET}${BOLD}◆ ABOUT SERVER STATS${RESET} ${GRAY}────────────────────────────────────${RESET}"
+    echo -e "${CYAN}▌${RESET}  ${WHITE}Name:${RESET}         Server Stats — System Telemetry Engine"
+    echo -e "${CYAN}▌${RESET}  ${WHITE}Version:${RESET}      1.0.0 (Stable)"
+    echo -e "${CYAN}▌${RESET}  ${WHITE}Author:${RESET}       Gourav Roy (@gouravroy27)"
+    echo -e "${CYAN}▌${RESET}  ${WHITE}License:${RESET}      MIT License"
+    echo -e "${CYAN}▌${RESET}  ${WHITE}Aesthetic:${RESET}    Tokyo Night / Nord Minimalist"
+    echo -e "${CYAN}▌${RESET}  ${WHITE}Runtime:${RESET}      POSIX Shell (Bash 4.0+, awk, sed, grep, vmstat)"
+    echo -e "${CYAN}▌${RESET}  ${WHITE}Repository:${RESET}   https://github.com/gouravroy27/Server-Stats"
+    echo -e "${CYAN}▌${RESET}  ${WHITE}Portfolio:${RESET}    https://gouravroy27.github.io"
+    echo -e "${CYAN}▌${RESET}  ${WHITE}Description:${RESET}  Zero-dependency terminal performance dashboard."
+    echo ""
 }
 
 render_panel() {
@@ -336,6 +352,7 @@ snapshot_req=false
 while [[ $# -gt 0 ]]; do
     case "$1" in
         -s|--snapshot|--report) snapshot_req=true; shift ;;
+        --about) show_about; exit 0 ;;
         -a|--all) show_hidden=true; shift ;;
         --kill) kill_pid="${2:-}"; shift 2 ;;
         --wifi-list) wifi_list_req=true; shift ;;
@@ -344,6 +361,7 @@ while [[ $# -gt 0 ]]; do
         -h|--help)
             echo "Usage: $0 [OPTIONS]"
             echo "  -s, --report             Print full non-interactive performance snapshot and exit"
+            echo "  --about                  Display project information, version, and author details"
             echo "  -a, --all                Show hidden background processes"
             echo "  --kill <PID>             Kill specified PID"
             echo "  --wifi-list              List Wi-Fi networks"
@@ -405,6 +423,7 @@ while true; do
             render_panel "Battery" "$(battery_status)" "🔋"
             [[ "$show_hidden" == true ]] && render_panel "Hidden" "$(show_hidden_background)" "👻"
             ;;
+        12) show_about ;;
         0|00) echo "Exiting..."; exit 0 ;;
         r) continue ;;
         *) ;;

@@ -12,6 +12,7 @@
 [CmdletBinding()]
 param(
     [switch]$All,
+    [switch]$About,
     [int]$Kill,
     [switch]$WifiList,
     [switch]$WifiCurrent,
@@ -89,9 +90,25 @@ function Draw-MainMenu {
     Write-Host ("$CYAN▌$RESET  05  Top Mem Processes   $CYAN▌$RESET  06  System Information")
     Write-Host ("$CYAN▌$RESET  07  Battery Status      $CYAN▌$RESET  08  Hidden Processes")
     Write-Host ("$CYAN▌$RESET  09  Wi-Fi List          $CYAN▌$RESET  10  Wi-Fi Current")
-    Write-Host ("$CYAN▌$RESET  11  Full Report         $CYAN▌$RESET  00  Exit")
+    Write-Host ("$CYAN▌$RESET  11  Full Report         $CYAN▌$RESET  12  About Project")
+    Write-Host ("$CYAN▌$RESET  00  Exit")
     Write-Host ("$GRAY──────────────────────────────────────────────────────────$RESET")
-    Write-Host ("$DIM  › Select [1-11]   › Refresh [r]   › Exit [0]$RESET")
+    Write-Host ("$DIM  › Select [1-12]   › Refresh [r]   › Exit [0]$RESET")
+}
+
+function Show-About {
+    Draw-Banner
+    Write-Host ("$VIOLET$BOLD◆ ABOUT SERVER STATS$RESET $GRAY────────────────────────────────────$RESET")
+    Write-Host ("$CYAN▌$RESET  $WHITE Name:$RESET         Server Stats — System Telemetry Engine")
+    Write-Host ("$CYAN▌$RESET  $WHITE Version:$RESET      1.0.0 (Stable)")
+    Write-Host ("$CYAN▌$RESET  $WHITE Author:$RESET       Gourav Roy (@gouravroy27)")
+    Write-Host ("$CYAN▌$RESET  $WHITE License:$RESET      MIT License")
+    Write-Host ("$CYAN▌$RESET  $WHITE Aesthetic:$RESET    Tokyo Night / Nord Minimalist")
+    Write-Host ("$CYAN▌$RESET  $WHITE Runtime:$RESET      PowerShell 5.1+ / Core 7+ (WMI/CIM)")
+    Write-Host ("$CYAN▌$RESET  $WHITE Repository:$RESET   https://github.com/gouravroy27/Server-Stats")
+    Write-Host ("$CYAN▌$RESET  $WHITE Portfolio:$RESET    https://gouravroy27.github.io")
+    Write-Host ("$CYAN▌$RESET  $WHITE Description:$RESET  Zero-dependency terminal performance dashboard.")
+    Write-Host ""
 }
 
 function Render-Panel([string]$title, [string]$content, [string]$icon="🧠") {
@@ -348,6 +365,7 @@ if ($Help) {
 
 Invoke-OsSelectionPrompt
 
+if ($About) { Show-About; exit 0 }
 if ($WifiList) { Render-Panel "Wi-Fi List" (Get-WifiList) "📶"; exit 0 }
 if ($WifiCurrent) { Render-Panel "Wi-Fi Current" (Get-WifiCurrent) "🌐"; exit 0 }
 if ($WifiConnect) { exit (Invoke-WifiConnect -ssid $WifiConnect -password $WifiPassword) }
@@ -386,6 +404,7 @@ while ($true) {
             Render-Panel "Battery" (Get-BatteryStatus) "🔋"
             if ($All) { Render-Panel "Hidden" (Get-HiddenProcesses) "👻" }
         }
+        '12' { Show-About }
         '0'  { Write-Host "Exiting..."; exit 0 }
         'r'  { continue }
         default { }
